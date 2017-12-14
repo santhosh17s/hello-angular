@@ -1,0 +1,10 @@
+
+:host { color: green; }
+
+:host(.selected) { color: red; }
+
+.active { 
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+}

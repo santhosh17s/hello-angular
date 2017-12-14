@@ -1,0 +1,20 @@
+<h2>CONTACT US</h2>
+<hr>
+<div class="container">
+  <form [formGroup]="contactForm">
+  <div class="form-group">
+    <label for="name">Title</label>
+    <input class="form-control" type="text" id="name" name="user"  formControlName="name" required>
+  </div>
+
+  <div>
+    <input type="submit" value="Contact us" >
+  </div>
+  </form>
+</div>
+
+
+<hr>
+
+<p>Form value: {{ contactForm.value | json }}</p>
+<p>Form status: {{ contactForm.status | json }}</p>

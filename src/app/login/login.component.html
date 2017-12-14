@@ -1,0 +1,28 @@
+<p>
+  Login
+</p>
+
+<form #login="ngForm" (ngSubmit)="onSubmit(login)">
+  <div class="form-group">
+    <label for="name">Title</label>
+    <input #name="ngModel" class="form-control" type="text" id="name" name="user" [(ngModel)]="model.title" required>
+  </div>
+  <p *ngIf="name.invalid">Name is required</p>
+
+  <div class="form-group">
+    <label for="type">Type</label>
+    <input type="checkbox" name="type" [(ngModel)]="model.isFulltime" id="type" required>
+  </div>
+
+  <p><select name="depart" id="depart" [(ngModel)]="model.department">
+    <option *ngFor="let d of departments"  [value]="d">{{ d }}</option>
+    </select></p>
+
+  <p>
+    <input type="submit" value="Login" [disabled]="login.form.invalid">
+    <input type="reset" (click)="onReset()" value="reset">
+  </p>
+  
+</form>
+
+<p>UserName: {{ login.value | json }}</p>
