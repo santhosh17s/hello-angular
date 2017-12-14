@@ -18,10 +18,24 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
    
-   this.ds.getPost().subscribe(data => {
-     this.post = data;
-   });
-      
+    this.ds.getPost().subscribe(data => {
+      this.post = data;
+    });
+
+  }
+
+  //Post post data 
+  onPost(){
+    console.log("Posting DAta");
+
+    this.ds.postPost().subscribe(
+      data => {
+        console.log(data);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 }

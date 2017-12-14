@@ -12,13 +12,13 @@ export class DataService {
 
   getPost(){
     return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts/1');
-    
-    /*
-    .subscribe(data => {
-         //this.post = data;
-        return data;
-     });
-   */
+  }
+
+  postPost(){
+    return this.http.post('https://jsonplaceholder.typicode.com/posts', {title: 'Post from Santhosh',
+      body: 'Todo App post data',
+      userId: 1
+      });
   }
 
 }
