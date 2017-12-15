@@ -1,5 +1,6 @@
 
 <h1 class="" appTitleDefault="2">{{ title }} </h1>
+ <app-portfolio [hello]="helloValue" [count]="initialCount" ></app-portfolio>
 
 <button (click)="increment()">Increment</button>
 <div>Current Count: {{ counter | async }}</div>
@@ -15,6 +16,7 @@
         <li><a routerLink="login" routerLinkActive="active">login</a></li>
         <li><a routerLink="about" routerLinkActive="active">about</a></li>
         <li><a routerLink="contact" routerLinkActive="active">contact</a></li>
+        <li><a routerLink="portfolio" routerLinkActive="active">Portfolio</a></li>
     </ul>
 </nav>
 

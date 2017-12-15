@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter';
+import { PortfolioComponent } from './portfolio/portfolio.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { counterReducer } from './counter';
     LoginComponent,
     TitleDefaultDirective,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    PortfolioComponent,
     ],
   imports: [
     BrowserModule,

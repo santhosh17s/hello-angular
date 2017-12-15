@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output} from '@angular/core';
 
 import { Observable } from "rxjs/Rx"
 import 'rxjs/add/operator/map';
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Store } from '@ngrx/store';
 import { INCREMENT, DECREMENT, RESET } from './counter';
+
 
 export interface AppState {
   counter: number;
@@ -20,6 +21,13 @@ export interface AppState {
 })
 export class AppComponent implements OnInit{
   title = 'Testing App';
+
+  initialCount: number = 17;
+  helloValue: string = "Say Hello from parent to child!";
+
+  //@Input() nameFromInput:string = "It is from input value";
+  //@Input() angImg: string = "https://angularjs.org/img/AngularJS-large.png";
+  //@Output() nameOut: string = "It is output string";
 
   counter: Observable<number>; 
   
