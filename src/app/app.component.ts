@@ -53,4 +53,8 @@ export class AppComponent implements OnInit{
 		this.store.dispatch({ type: RESET });
 	}
 
+  sayHi(event){
+    console.log(event);
+  }
+
 }

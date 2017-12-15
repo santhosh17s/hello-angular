@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio',
@@ -12,6 +12,8 @@ export class PortfolioComponent implements OnInit {
   ngOnInit() {
   }
 
+  @Output() hisay = new EventEmitter();
+
   @Input() 
   hello: string = "saying hi from child"; 
 
@@ -20,9 +22,11 @@ export class PortfolioComponent implements OnInit {
   
   increment() {
     this.count++;
+    this.hisay.emit("coming from child + ");
   }
   
   decrement() {
     this.count--;
+     this.hisay.emit("coming from child - ");
   }
 }
