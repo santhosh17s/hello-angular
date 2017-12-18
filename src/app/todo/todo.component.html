@@ -1,0 +1,13 @@
+
+<input #itemInput
+(keyup.enter)="addItem(itemInput.value); itemInput.value=''">
+
+<button
+(click)="addItem(itemInput.value); itemInput.value=''">
+Add
+</button>
+
+<ul *ngIf="items">
+    <li *ngFor="let item of items"
+        [@flyInOut]="'in'">{{ item }}</li>
+  </ul>

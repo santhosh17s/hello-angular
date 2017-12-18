@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter';
 import { PortfolioComponent } from './portfolio/portfolio.component';
+import { TodoComponent } from './todo/todo.component';
 
 
 @NgModule({
@@ -25,12 +27,14 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
     AboutComponent,
     ContactComponent,
     PortfolioComponent,
+    TodoComponent
     ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     StoreModule.forRoot({ counterReducer }),
     ReactiveFormsModule
   ],
