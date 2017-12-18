@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {  HostBinding, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-portfolio',
@@ -7,9 +8,23 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
+  possibleColors = [
+    'darksalmon', 'hotpink', 'lightskyblue', 'goldenrod', 'peachpuff',
+    'mediumspringgreen', 'cornflowerblue', 'blanchedalmond', 'lightslategrey'
+  ];
+
+  @HostBinding('style.color') color: string;
+  @HostBinding('style.border-color') borderColor: string;
+  
+  @HostListener('click') newClicked() {
+      console.log("host listener clicked");
+  }
+
   constructor() { }
 
   ngOnInit() {
+    this.color = '#525252';
+    this.borderColor = 'red';
   }
 
   @Output() hisay = new EventEmitter();

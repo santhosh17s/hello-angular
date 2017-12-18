@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output} from '@angular/core';
+import { Component, OnInit, Input, Output, ViewChild, AfterViewInit} from '@angular/core';
 
 import { Observable } from "rxjs/Rx"
 import 'rxjs/add/operator/map';
@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { INCREMENT, DECREMENT, RESET } from './counter';
 
+import { AboutComponent } from './about/about.component';
 
 export interface AppState {
   counter: number;
@@ -19,11 +20,14 @@ export interface AppState {
   styleUrls: ['./app.component.css'],
   providers: []    
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   title = 'Testing App';
 
   initialCount: number = 17;
   helloValue: string = "Say Hello from parent to child!";
+
+  //@ViewChild(AboutComponent) about: AboutComponent;
+
 
   //@Input() nameFromInput:string = "It is from input value";
   //@Input() angImg: string = "https://angularjs.org/img/AngularJS-large.png";
@@ -38,6 +42,10 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     //console.log('Initial Store counter value', this.store.select(state => state.counter));
     this.counter = this.store.select('counter');
+  }
+
+  ngAfterViewInit() {
+   //  console.log(this.about.whoAmI());
   }
 
   increment() {

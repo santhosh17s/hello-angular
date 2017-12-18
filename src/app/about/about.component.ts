@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component,
+          OnInit,
+          ViewChild,
+          AfterViewInit,
+          ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { DataService } from '../data.service';
@@ -10,9 +14,12 @@ import { Post } from './post';
   styleUrls: ['./about.component.scss'],
   providers: [DataService]
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, AfterViewInit  {
 
   post = new Post();
+
+  
+  @ViewChild('searchInput') searchInput: ElementRef; 
 
   constructor( private http:HttpClient, private ds: DataService) { }
 
@@ -22,6 +29,14 @@ export class AboutComponent implements OnInit {
       this.post = data;
     });
 
+  }
+
+  ngAfterViewInit() {
+    this.searchInput.nativeElement.value = 'Getting posts';
+  }
+
+  whoAmI() {
+    return '👶 I am About child!!';
   }
 
   //Post post data 
