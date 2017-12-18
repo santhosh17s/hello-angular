@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges } from '@angular/core';
 import {  HostBinding, HostListener} from '@angular/core';
 
 @Component({
@@ -6,7 +6,7 @@ import {  HostBinding, HostListener} from '@angular/core';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent implements OnInit, OnChanges {
 
   possibleColors = [
     'darksalmon', 'hotpink', 'lightskyblue', 'goldenrod', 'peachpuff',
@@ -22,9 +22,33 @@ export class PortfolioComponent implements OnInit {
 
   constructor() { }
 
+  ngOnChanges() {
+    console.log("change in input properties");
+  }
+
   ngOnInit() {
+    console.log('Initialize the portfolio component');
     this.color = '#525252';
     this.borderColor = 'red';
+  }
+  ngAfterContentInit() {
+    console.log("ngAfterContentInit");
+  }
+
+  ngAfterContentChecked() {
+    console.log("ngAfterContentChecked");
+  }
+
+  ngAfterViewInit() {
+    console.log("ngAfterViewInit");
+  }
+
+  ngAfterViewChecked() {
+    console.log("ngAfterViewChecked");
+  }
+
+  ngOnDestroy() {
+    console.log("portfolio component is destroyed");
   }
 
   @Output() hisay = new EventEmitter();
