@@ -1,18 +1,18 @@
 
 <h1 class="" appTitleDefault="2">{{ title }} </h1>
- <app-portfolio [hello]="helloValue" [count]="initialCount" (hisay)="sayHi($event)"></app-portfolio>
 
+<!-- store values increment and decrement -->
 <button (click)="increment()">Increment</button>
 <div>Current Count: {{ counter | async }}</div>
 <button (click)="decrement()">Decrement</button>
-
 <button (click)="reset()">Reset Counter</button>
         
+<p #about></p>
 
-<p [ngClass]="{'intro': true, 'selected': true }">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam qui cumque.</p>
+<p [ngClass]="{'intro': true, 'selected': true }">Navigation.</p>
 
 <nav>
-    <ul>
+    <ul class="nav">
         <li><a routerLink="login" routerLinkActive="active">login</a></li>
         <li><a routerLink="about" routerLinkActive="active">about</a></li>
         <li><a routerLink="contact" routerLinkActive="active">contact</a></li>

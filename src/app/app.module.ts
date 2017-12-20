@@ -3,27 +3,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter';
+
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { TitleDefaultDirective } from './title-default.directive';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
-import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
+
+import { FeatureModule } from './features/feature.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     TitleDefaultDirective,
     AboutComponent,
     ContactComponent,
@@ -37,8 +38,9 @@ import { TodoListComponent } from './todo/todo-list/todo-list.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ counterReducer }),
-    ReactiveFormsModule
+    StoreModule.forRoot({ counter: counterReducer  }),
+    ReactiveFormsModule,
+    FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]

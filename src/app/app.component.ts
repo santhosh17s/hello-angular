@@ -26,13 +26,14 @@ export class AppComponent implements OnInit, AfterViewInit{
   initialCount: number = 17;
   helloValue: string = "Say Hello from parent to child!";
 
-  //@ViewChild(AboutComponent) about: AboutComponent;
+  @ViewChild(AboutComponent) about: AboutComponent;
 
 
   //@Input() nameFromInput:string = "It is from input value";
   //@Input() angImg: string = "https://angularjs.org/img/AngularJS-large.png";
   //@Output() nameOut: string = "It is output string";
 
+  //store value
   counter: Observable<number>; 
   
   constructor(public http: HttpClient, private store: Store<AppState>){ 
