@@ -1,23 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { style, animate, trigger, state, transition } from "@angular/animations";
-
 
 @Component({
     selector: 'todo-list',
     templateUrl: './todo.component.html',
-    styleUrls: ['./todo.component.scss'],
-    animations:[
-        trigger('flyInOut', [
-            state('in', style({transform: 'translateX(0)'})),
-            transition('void => *', [
-                style({transform: 'translateX(-100%)'}),
-              animate(1000)
-            ]),
-            transition('* => void', [
-              animate(1000, style({transform: 'translateX(100%)'}))
-            ])
-          ])
-    ]
+    styleUrls: ['./todo.component.scss']    
 })
 export class TodoComponent implements OnInit {
 
@@ -25,13 +11,15 @@ export class TodoComponent implements OnInit {
 
    ngOnInit() {
     this.items = [
-             'First Todo list'           
+             'First Todo list',
+             'second one'           
         ];
 
    }
 
    addItem(value) {
-      this.items.push(value);
-   }
+      this.items = [...this.items, value];
+      console.log(this.items)
+    }
 
 }

@@ -17,6 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { TodoComponent } from './todo/todo.component';
+import { TodoListComponent } from './todo/todo-list/todo-list.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TodoComponent } from './todo/todo.component';
     AboutComponent,
     ContactComponent,
     PortfolioComponent,
-    TodoComponent
+    TodoComponent,
+    TodoListComponent
     ],
   imports: [
     BrowserModule,

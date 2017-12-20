@@ -7,7 +7,5 @@
 Add
 </button>
 
-<ul *ngIf="items">
-    <li *ngFor="let item of items"
-        [@flyInOut]="'in'">{{ item }}</li>
-  </ul>
+<app-todo-list [listItem]="items"></app-todo-list>
+

@@ -10,12 +10,12 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { TodoComponent } from './todo/todo.component';
 
 const appRoutes: Routes = [
-  { path:'', component: LoginComponent } ,
-  { path:'about', component: AboutComponent },
-  { path:'contact', component: ContactComponent },
-  { path:'login', component: LoginComponent },
-  { path:'portfolio', component:  PortfolioComponent},
-  { path:'todo', component: TodoComponent }
+  { path:'', component: LoginComponent, data: { title: 'Hello World'} } ,
+  { path:'about', component: AboutComponent, data: { title: 'About'}  },
+  { path:'contact', component: ContactComponent, data: { title: 'Contact'}  },
+  { path:'login', component: LoginComponent, data: { title: 'Login'}  },
+  { path:'portfolio', component:  PortfolioComponent, data: { title: 'Portfolio'} },
+  { path:'todo', component: TodoComponent, data: { title: 'Todo'}  }
 ];
 
 @NgModule({

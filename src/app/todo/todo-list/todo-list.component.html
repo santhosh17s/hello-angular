@@ -1,0 +1,4 @@
+<ul *ngIf="listItem">
+  <li *ngFor="let item of listItem"
+      [@flyInOut]="'in'">{{ item }}</li>
+</ul>
