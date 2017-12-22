@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 @Component({
     selector: 'todo-list',
     templateUrl: './todo.component.html',
-    styleUrls: ['./todo.component.scss']    
+    styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
 
