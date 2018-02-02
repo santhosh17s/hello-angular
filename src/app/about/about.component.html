@@ -1,6 +1,11 @@
 <h2>ABOUT POST</h2>
 <br>
 
+<ng-template *ngIf="showTemp" >
+    <p> Hello World </p>
+  </ng-template> 
+
+
 <h4 >Goal Lists</h4>
 <!-- From: -->
 <div [@goals]="goals.length">     

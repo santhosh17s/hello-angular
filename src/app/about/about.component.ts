@@ -38,6 +38,8 @@ import { style, animate, trigger, state, transition, query, stagger, keyframes }
 })
 export class AboutComponent implements OnInit, AfterViewInit  {
 
+  private showTemp:boolean = true;
+
   post = new Post();
 
   private goals = ['My first life goal', 'I want to climb a mountain', 'Go ice skiing'];
