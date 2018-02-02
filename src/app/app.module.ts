@@ -42,7 +42,12 @@ import { FeatureModule } from './features/feature.module';
     ReactiveFormsModule,
     FeatureModule
   ],
-  providers: [],
+  providers: [
+     {
+      provide: 'canAlwaysActiveGuard',
+      useValue: () => { return false; } 
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
