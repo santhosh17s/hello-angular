@@ -7,13 +7,14 @@ import { style, animate, trigger, state, transition } from "@angular/animations"
   styleUrls: ['./todo-list.component.scss'],
   animations: [
     trigger('flyInOut', [
-      state('in', style({transform: 'translateX(0)'})),
+      state('in', 
+      style({transform: 'translateX(0)'})),
       transition('void => *', [
           style({transform: 'translateX(-100%)'}),
-        animate(350)
+        animate(500)
       ]),
       transition('* => void', [
-        animate(350, style({transform: 'translateX(100%)'}))
+        animate(500, style({transform: 'translateX(100%)'}))
       ])
     ])
   ],
