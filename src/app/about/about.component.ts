@@ -2,14 +2,12 @@ import {  Component,
           OnInit,
           ViewChild,
           AfterViewInit,
-          ElementRef 
+          ElementRef, 
+          HostBinding
           } from '@angular/core';
-
 import { HttpClient } from '@angular/common/http';
-
 import { DataService } from '../data.service';
 import { Post } from './post';
-
 import { style, animate, trigger, state, transition, query, stagger, keyframes } from "@angular/animations";
 
 @Component({
@@ -19,7 +17,7 @@ import { style, animate, trigger, state, transition, query, stagger, keyframes }
   providers: [DataService],
   animations: [
     trigger('goals',[
-     transition('* => *', [
+       transition('* => *', [
         query(':enter', style({ opacity: 0 }), {optional: true}),
         query(':enter', stagger('300ms', [
           animate('.6s ease-in', keyframes([
@@ -44,7 +42,11 @@ export class AboutComponent implements OnInit, AfterViewInit  {
 
   private goals = ['My first life goal', 'I want to climb a mountain', 'Go ice skiing'];
   
+  //want to accesss child component, directive or DOM element from parent component class.
   @ViewChild('searchInput') searchInput: ElementRef; 
+  
+  //Set attribute to DOM element
+  @HostBinding('style.color') isValid:string = "red";
 
   constructor( private http:HttpClient, private ds: DataService) { }
 
@@ -80,6 +82,10 @@ export class AboutComponent implements OnInit, AfterViewInit  {
 
   removeItem(index) {
       this.goals.splice(index, 1);
+  }
+
+  animateEnd() {
+    console.log("Animation End, Owe...");
   }
 
 }
