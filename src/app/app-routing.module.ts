@@ -8,10 +8,11 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { TodoComponent } from './todo/todo.component';
+import { AuthGuard } from './auth.guard';
 
 const appRoutes: Routes = [
   { path:'about', component: AboutComponent, data: { title: 'About'}, canActivate: ['canAlwaysActiveGuard']  },
-  { path:'contact', component: ContactComponent, data: { title: 'Contact'}  },
+  { path:'contact', component: ContactComponent, data: { title: 'Contact'}, canActivate: [AuthGuard] },
   { path:'portfolio', component:  PortfolioComponent, data: { title: 'Portfolio'} },
   { path:'todo', component: TodoComponent, data: { title: 'Todo'}  },
   { path:'login', loadChildren: './features/feature.module#FeatureModule'   },

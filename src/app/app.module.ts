@@ -20,6 +20,8 @@ import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 
 import { FeatureModule } from './features/feature.module';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth/auth.service';
 
 
 @NgModule({
@@ -46,7 +48,9 @@ import { FeatureModule } from './features/feature.module';
      {
       provide: 'canAlwaysActiveGuard',
       useValue: () => { return false; } 
-    }
+    },
+    AuthGuard,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
