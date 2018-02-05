@@ -9,6 +9,8 @@ import { Store } from '@ngrx/store';
 import { INCREMENT, DECREMENT, RESET } from './counter';
 
 import { AboutComponent } from './about/about.component';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 export interface AppState {
   counter: number;
@@ -36,14 +38,38 @@ export class AppComponent implements OnInit, AfterViewInit{
   //store value
   counter: Observable<number>; 
   
-  constructor(public http: HttpClient, private store: Store<AppState>){ 
+  constructor(
+    public http: HttpClient, 
+    private store: Store<AppState>,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title ){ 
     
   }
 
   ngOnInit() {
     //console.log('Initial Store counter value', this.store.select(state => state.counter));
     this.counter = this.store.select('counter');
+
+    //Dynamic page titles
+   /*  this.router.events
+              .filter(event => event instanceof NavigationEnd)
+              .map(() => this.activatedRoute)
+              .map(route => {
+                while (route.firstChild) route = route.firstChild;
+                return route;
+              })
+              .filter(route => route.outlet === 'primary')
+              .mergeMap(route => route.data)
+              .subscribe((event) => this.titleService.setTitle(event['title'])); */
   }
+
+
+  //Set the Document Title
+  //public setTitle( newTitle: string) {
+    //this.titleService.setTitle( newTitle );
+  //}
+
 
   ngAfterViewInit() {
    //  console.log(this.about.whoAmI());
